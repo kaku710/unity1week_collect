@@ -37,7 +37,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         this.PersonProductivity.Value += person;
     }
 
-    public void SetSecondsProductivity(int seconds){
+    public void SetSecondsProductivity(float seconds){
         this.SecondsProductivity.Value = seconds;
     }
 
