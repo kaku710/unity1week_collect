@@ -6,10 +6,15 @@ using UnityEngine;
 
 public class InGamePresenter : MonoBehaviour {
     [SerializeField] private InGameView view;
+    [SerializeField] private Command command;
     private void Start () {
         LoadGame ();
         Bind ();
         SetEvents ();
+    }
+
+    private void Update(){
+        view.snsButton.interactable = StatusManager.Instance.Money.Value >= StatusManager.Instance.SnsCost.Value ? true : false;
     }
 
     private void LoadGame () {
@@ -17,6 +22,7 @@ public class InGamePresenter : MonoBehaviour {
         StatusManager.Instance.SetPersonProductivity (GameInfo.DEFAULT_PERSON_PRODUCTIVITY);
         StatusManager.Instance.SetSecondsProductivity (GameInfo.DEFAULT_SECONDS_PRODUCTIVITY);
         StatusManager.Instance.SetStayTime (GameInfo.DEFAULT_STAY_TIME);
+        StatusManager.Instance.SetSnsFollowes(CommandInfo.SNS_FOLLOWER_ARRAY[0]);
     }
 
     private void Bind () {
@@ -27,22 +33,17 @@ public class InGamePresenter : MonoBehaviour {
             .Subscribe (view.OnPersonProductivityChanged)
             .AddTo (gameObject);
         StatusManager.Instance.SecondsProductivity
-            .Subscribe (view.OnSecondsProductivityText)
+            .Subscribe (view.OnSecondsProductivityChanged)
             .AddTo (gameObject);
+        StatusManager.Instance.SnsFollowers
+            .Subscribe(view.OnSNSFollowerChanged)
+            .AddTo(gameObject);
+        StatusManager.Instance.SnsCost
+            .Subscribe(view.OnSNSCostChanged)
+            .AddTo(gameObject);
     }
 
     private void SetEvents () {
-        view.snsButton.onClick.AddListener (OnSNSButtonClicked);
-    }
-
-    private void OnSNSButtonClicked () {
-        if (StatusManager.Instance.SecondsProductivity.Value > 1.002f) {
-            float downRate = 0.2f;
-            StatusManager.Instance.DownSecondsProductivity (downRate);
-            if (StatusManager.Instance.SecondsProductivity.Value <= 1f) StatusManager.Instance.SetSecondsProductivity (1f);
-        }
-        else {
-            StatusManager.Instance.ChangePersonProductivity(1);
-        }
+        view.snsButton.onClick.AddListener (command.OnSNSButtonClicked);
     }
 }

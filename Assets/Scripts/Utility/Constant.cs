@@ -8,8 +8,7 @@
     }
 
     public static class CommandInfo{
-        public static readonly int[] SNS_MONEY_ARRAY = new int[16]{
-            0,
+        public static readonly int[] SNS_COST_ARRAY = new int[16]{
             1000,
             3000,
             5000,
@@ -24,6 +23,7 @@
             1000000,
             2000000,
             3000000,
+            4000000,
             5000000
         };
         public static readonly int[] SNS_FOLLOWER_ARRAY = new int[16]{

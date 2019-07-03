@@ -8,7 +8,9 @@ public class InGameView : MonoBehaviour {
     [SerializeField] private Text
     moneyText,
     personProductivityText,
-    secondsProductivityText;
+    secondsProductivityText,
+    snsFollowerText,
+    snsCostText;
     public Button snsButton;
 
     public void OnMoneyChanged (int money) {
@@ -19,7 +21,15 @@ public class InGameView : MonoBehaviour {
         personProductivityText.text = person.ToString ();
     }
 
-    public void OnSecondsProductivityText (float seconds) {
+    public void OnSecondsProductivityChanged (float seconds) {
         secondsProductivityText.text = seconds.ToString ("f1");
+    }
+
+    public void OnSNSFollowerChanged(int follower){
+        snsFollowerText.text = follower.ToString() + "人";
+    }
+
+    public void OnSNSCostChanged(int cost){
+        snsCostText.text = "¥" + cost.ToString();
     }
 }
