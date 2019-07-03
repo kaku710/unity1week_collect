@@ -22,6 +22,7 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
         Money = new IntReactiveProperty();
         PersonProductivity = new IntReactiveProperty();
         SecondsProductivity = new FloatReactiveProperty();
+        StayTime = new FloatReactiveProperty();
     }
 
     public void SetMoney(int money){

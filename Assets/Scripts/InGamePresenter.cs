@@ -15,6 +15,7 @@ public class InGamePresenter : MonoBehaviour {
         StatusManager.Instance.SetMoney (GameInfo.DEFAULT_MONEY);
         StatusManager.Instance.SetPersonProductivity (GameInfo.DEFAULT_PERSON_PRODUCTIVITY);
         StatusManager.Instance.SetSecondsProductivity (GameInfo.DEFAULT_SECONDS_PRODUCTIVITY);
+        StatusManager.Instance.SetStayTime(GameInfo.DEFAULT_STAY_TIME);
     }
 
     private void Bind () {
