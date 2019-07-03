@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 527913569}
   - component: {fileID: 527913568}
   m_Layer: 5
-  m_Name: StoreExtendButton
+  m_Name: SeatExtendButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1407,7 +1407,7 @@ GameObject:
   - component: {fileID: 708375761}
   - component: {fileID: 708375760}
   m_Layer: 5
-  m_Name: CostLabel
+  m_Name: SeatCostLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 995146261}
   - component: {fileID: 995146260}
   m_Layer: 5
-  m_Name: CostLabel
+  m_Name: MenuCostLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2400,6 +2400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDontDestroy: 1
   snsLevel: 0
+  seatLevel: 0
 --- !u!4 &1324692488
 Transform:
   m_ObjectHideFlags: 0
@@ -3089,9 +3090,15 @@ MonoBehaviour:
   snsCostText: {fileID: 1828568966}
   partJobCountText: {fileID: 530140936}
   partJobCostText: {fileID: 912157393}
+  menuCountText: {fileID: 1350784005}
+  menuCostText: {fileID: 995146260}
+  seatCountText: {fileID: 1227975704}
+  seatCostText: {fileID: 708375760}
   snsButton: {fileID: 1399278749}
   workButton: {fileID: 247012913}
   employButton: {fileID: 949626164}
+  menuExtendButton: {fileID: 1324015641}
+  seatExtendButton: {fileID: 527913568}
 --- !u!4 &1823656087
 Transform:
   m_ObjectHideFlags: 0

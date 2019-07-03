@@ -37,4 +37,11 @@ public class Command : MonoBehaviour {
         //客の単価をあげる処理
         StatusManager.Instance.SetMenuCost(CommandInfo.MENU_COUNT_COST_ARRAY[StatusManager.Instance.MenuCount.Value - 1]);
     }
+
+    public void OnSeatExtendButtonClicked(){
+        StatusManager.Instance.ChangeMoney(-(StatusManager.Instance.SeatCost.Value));
+        StatusManager.Instance.seatLevel++;
+        StatusManager.Instance.SetSeatCount(CommandInfo.SEAT_COUNT_ARRAY[StatusManager.Instance.seatLevel]);
+        StatusManager.Instance.SetSeatCost(CommandInfo.SEAT_COST_ARRAY[StatusManager.Instance.seatLevel]);
+    }
 }

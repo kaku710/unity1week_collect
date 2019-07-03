@@ -7,6 +7,7 @@
         public static readonly int MAX_SNS_LEVEL = 16;
         public static readonly int MAX_PART_TIME_LEVEL = 16;
         public static readonly int MAX_MENU_COUNT = 16;
+        public static readonly int MAX_SEAT_LEVEL = 10;
     }
 
     public static class CommandInfo{
@@ -82,5 +83,35 @@
             4000000,
             5000000
         }; 
+        public static readonly int[] SEAT_COUNT_ARRAY = new int[10]{
+            5,
+            7,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40,
+            50
+        };
+        public static readonly int[] SEAT_COST_ARRAY = new int[16]{
+            1000,
+            3000,
+            5000,
+            10000,
+            25000,
+            50000,
+            100000,
+            150000,
+            200000,
+            300000,
+            500000,
+            1000000,
+            2000000,
+            3000000,
+            4000000,
+            5000000
+        };
     }
 }

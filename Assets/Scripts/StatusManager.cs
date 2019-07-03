@@ -47,9 +47,22 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         get;
         private set;
     }
+    [HideInInspector] public int seatLevel;
+    public ReactiveProperty<int> SeatCount {
+        get;
+        private set;
+    }
+    public ReactiveProperty<int> SeatCost {
+        get;
+        private set;
+    }
 
     private void Awake () {
         base.Awake ();
+        SetDefaultValue();
+    }
+
+    private void SetDefaultValue(){
         Money = new IntReactiveProperty ();
         PersonProductivity = new IntReactiveProperty ();
         SecondsProductivity = new FloatReactiveProperty ();
@@ -60,7 +73,10 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         PartJobCount = new IntReactiveProperty (0);
         PartJobCost = new IntReactiveProperty (CommandInfo.PART_JOB_COST_ARRAY[0]);
         MenuCount = new IntReactiveProperty (1);
-        MenuCost = new IntReactiveProperty(CommandInfo.MENU_COUNT_COST_ARRAY[0]);
+        MenuCost = new IntReactiveProperty (CommandInfo.MENU_COUNT_COST_ARRAY[0]);
+        seatLevel = 0;
+        SeatCount = new IntReactiveProperty (CommandInfo.SEAT_COUNT_ARRAY[0]);
+        SeatCost = new IntReactiveProperty (CommandInfo.SEAT_COST_ARRAY[0]);
     }
 
     public void SetMoney (int money) {
@@ -117,5 +133,13 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
 
     public void AddMenuCount () {
         MenuCount.Value++;
+    }
+
+    public void SetSeatCount(int count){
+        this.SeatCount.Value = count;
+    }
+
+    public void SetSeatCost(int cost){
+        this.SeatCost.Value = cost;
     }
 }
