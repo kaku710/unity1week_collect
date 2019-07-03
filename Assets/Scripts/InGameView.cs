@@ -11,7 +11,10 @@ public class InGameView : MonoBehaviour {
     secondsProductivityText,
     snsFollowerText,
     snsCostText;
-    public Button snsButton;
+    
+    public Button 
+    snsButton,
+    workButton;
 
     public void OnMoneyChanged (int money) {
         moneyText.text = "¥" + money.ToString ();
@@ -26,7 +29,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnSNSFollowerChanged(int follower){
-        snsFollowerText.text = follower.ToString() + "人";
+        snsFollowerText.text = "フォロワー : " + follower.ToString() + "人";
     }
 
     public void OnSNSCostChanged(int cost){

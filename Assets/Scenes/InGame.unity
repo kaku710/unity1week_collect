@@ -261,7 +261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA510000"
+  m_Text: "\xA51000"
 --- !u!222 &128742052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -731,8 +731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -680, y: 385}
-  m_SizeDelta: {x: 60, y: 40}
+  m_AnchoredPosition: {x: -734.47, y: 389.99994}
+  m_SizeDelta: {x: 37.47, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440898981
 MonoBehaviour:
@@ -767,7 +767,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 1
 --- !u!222 &440898982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1271,8 +1271,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 385}
-  m_SizeDelta: {x: 50, y: 40}
+  m_AnchoredPosition: {x: -488.56, y: 390}
+  m_SizeDelta: {x: 88.44, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &598592071
 MonoBehaviour:
@@ -1307,7 +1307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 10.0
 --- !u!222 &598592072
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2124,8 +2124,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61, y: 0}
-  m_SizeDelta: {x: 90, y: 25}
+  m_AnchoredPosition: {x: -58.9, y: 0}
+  m_SizeDelta: {x: 97.96, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175545278
 MonoBehaviour:
@@ -2160,7 +2160,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9023\u6253\u3067\u304A\u91D1\u3092\u7A3C\u3050"
+  m_Text: "\u30BF\u30C3\u30D7\u3067\u304A\u91D1\u3092\u7A3C\u3050"
 --- !u!222 &1175545279
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3088,6 +3088,7 @@ MonoBehaviour:
   snsFollowerText: {fileID: 1126020004}
   snsCostText: {fileID: 1828568966}
   snsButton: {fileID: 1399278749}
+  workButton: {fileID: 247012913}
 --- !u!4 &1823656087
 Transform:
   m_ObjectHideFlags: 0

@@ -45,5 +45,6 @@ public class InGamePresenter : MonoBehaviour {
 
     private void SetEvents () {
         view.snsButton.onClick.AddListener (command.OnSNSButtonClicked);
+        view.workButton.onClick.AddListener(command.OnWorkButtonClicked);
     }
 }
