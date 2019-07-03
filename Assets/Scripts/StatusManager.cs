@@ -33,6 +33,7 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
     }
 
     private void Awake(){
+        base.Awake();
         Money = new IntReactiveProperty();
         PersonProductivity = new IntReactiveProperty();
         SecondsProductivity = new FloatReactiveProperty();
