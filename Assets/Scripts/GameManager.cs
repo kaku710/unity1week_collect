@@ -17,6 +17,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
     }
 
     private void SpawnCustomer () {
-        //Instantiate (customer, customerParentTransform);
+        Instantiate (customer, customerParentTransform);
     }
 }
