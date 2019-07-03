@@ -22,4 +22,12 @@ public class Command : MonoBehaviour {
         int money = Random.Range (20, 31); //あとで変える
         StatusManager.Instance.ChangeMoney(money);
     }
+
+    public void OnEmployButtonClicked(){
+        StatusManager.Instance.ChangeMoney(-(StatusManager.Instance.PartJobCost.Value));
+        StatusManager.Instance.AddPartJobCount();
+        float downTime = 0.5f; //あとで変える
+        StatusManager.Instance.DownStayTime(downTime);
+        StatusManager.Instance.SetPartJobCost(CommandInfo.PART_JOB_COST_ARRAY[StatusManager.Instance.PartJobCount.Value]);
+    }
 }

@@ -18,11 +18,17 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
     public ReactiveProperty<float> StayTime{
         get; private set;
     }
-    public int snsLevel;
+    [HideInInspector] public int snsLevel;
     public ReactiveProperty<int> SnsFollowers{
         get; private set;
     }
     public ReactiveProperty<int> SnsCost{
+        get; private set;
+    }
+    public ReactiveProperty<int> PartJobCount{
+        get; private set;
+    }
+    public ReactiveProperty<int> PartJobCost{
         get; private set;
     }
 
@@ -34,6 +40,8 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
         snsLevel = 0;
         SnsFollowers = new IntReactiveProperty(CommandInfo.SNS_FOLLOWER_ARRAY[0]);
         SnsCost = new IntReactiveProperty(CommandInfo.SNS_COST_ARRAY[0]);
+        PartJobCount = new IntReactiveProperty(0);
+        PartJobCost = new IntReactiveProperty(CommandInfo.PART_JOB_COST_ARRAY[0]);
     }
 
     public void SetMoney(int money){
@@ -64,11 +72,23 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
         this.StayTime.Value = time;
     }
 
+    public void DownStayTime(float time){
+        this.StayTime.Value -= time;
+    }
+
     public void SetSnsFollowes(int follower){
         this.SnsFollowers.Value = follower;
     }
 
     public void SetSnsCost(int cost){
         this.SnsCost.Value = cost;
+    }
+
+    public void SetPartJobCost(int cost){
+        this.PartJobCost.Value = cost;
+    }
+
+    public void AddPartJobCount(){
+        PartJobCount.Value++;
     }
 }

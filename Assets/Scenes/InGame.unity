@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 530140937}
   - component: {fileID: 530140936}
   m_Layer: 5
-  m_Name: BaitoLabel
+  m_Name: PartJobLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3087,8 +3087,11 @@ MonoBehaviour:
   secondsProductivityText: {fileID: 598592071}
   snsFollowerText: {fileID: 1126020004}
   snsCostText: {fileID: 1828568966}
+  partJobCountText: {fileID: 530140936}
+  partJobCostText: {fileID: 912157393}
   snsButton: {fileID: 1399278749}
   workButton: {fileID: 247012913}
+  employButton: {fileID: 949626164}
 --- !u!4 &1823656087
 Transform:
   m_ObjectHideFlags: 0
