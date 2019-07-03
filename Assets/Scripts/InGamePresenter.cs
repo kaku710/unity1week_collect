@@ -14,10 +14,10 @@ public class InGamePresenter : MonoBehaviour {
     }
 
     private void Update () {
-        view.snsButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SnsCost.Value) && (StatusManager.Instance.snsLevel < GameInfo.MAX_SNS_LEVEL) ? true : false;
+        view.snsButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SnsCost.Value) && (StatusManager.Instance.snsLevel < GameInfo.MAX_SNS_LEVEL - 1) ? true : false;
         view.employButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.PartJobCost.Value) && (StatusManager.Instance.PartJobCount.Value < GameInfo.MAX_PART_TIME_LEVEL) ? true : false;
         view.menuExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.MenuCost.Value) && (StatusManager.Instance.MenuCount.Value < GameInfo.MAX_MENU_COUNT) ? true : false;
-        view.seatExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SeatCost.Value) && (StatusManager.Instance.SeatCount.Value < GameInfo.MAX_SEAT_LEVEL) ? true : false;
+        view.seatExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SeatCost.Value) && (StatusManager.Instance.seatLevel < GameInfo.MAX_SEAT_LEVEL - 1) ? true : false;
     }
 
     private void LoadGame () {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Communication;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,7 +43,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnSNSCostChanged(int cost){
-        snsCostText.text = "¥" + cost.ToString();
+        snsCostText.text = StatusManager.Instance.snsLevel < GameInfo.MAX_SNS_LEVEL - 1 ? "¥" + cost.ToString() : "MAX";
     }
 
     public void OnPartJobCountChanged(int count){
@@ -50,7 +51,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnPartJobCostChanged(int cost){
-        partJobCostText.text = "¥" + cost.ToString();
+        partJobCostText.text = StatusManager.Instance.PartJobCount.Value < GameInfo.MAX_PART_TIME_LEVEL ? "¥" + cost.ToString() : "MAX";
     }
 
     public void OnMenuCountChanged(int count){
@@ -58,7 +59,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnMenuCostChanged(int cost){
-        menuCostText.text = "¥" + cost.ToString();
+        menuCostText.text = StatusManager.Instance.MenuCount.Value < GameInfo.MAX_MENU_COUNT ? "¥" + cost.ToString() : "MAX";
     }
 
     public void OnSeatCountChanged(int count){
@@ -66,6 +67,6 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnSeatCostChanged(int cost){
-        seatCostText.text = "¥" + cost.ToString();
+        seatCostText.text = StatusManager.Instance.seatLevel < GameInfo.MAX_SEAT_LEVEL - 1 ? "¥" + cost.ToString() : "MAX";
     }
 }
