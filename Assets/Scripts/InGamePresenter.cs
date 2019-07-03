@@ -12,19 +12,19 @@ public class InGamePresenter : MonoBehaviour {
     }
 
     private void LoadGame () {
-        GameManager.Instance.SetMoney (GameInfo.DEFAULT_MONEY);
-        GameManager.Instance.SetPersonProductivity (GameInfo.DEFAULT_PERSON_PRODUCTIVITY);
-        GameManager.Instance.SetSecondsProductivity (GameInfo.DEFAULT_SECONDS_PRODUCTIVITY);
+        StatusManager.Instance.SetMoney (GameInfo.DEFAULT_MONEY);
+        StatusManager.Instance.SetPersonProductivity (GameInfo.DEFAULT_PERSON_PRODUCTIVITY);
+        StatusManager.Instance.SetSecondsProductivity (GameInfo.DEFAULT_SECONDS_PRODUCTIVITY);
     }
 
     private void Bind () {
-        GameManager.Instance.Money
+        StatusManager.Instance.Money
             .Subscribe (view.OnMoneyChanged)
             .AddTo (gameObject);
-        GameManager.Instance.PersonProductivity
+        StatusManager.Instance.PersonProductivity
             .Subscribe (view.OnPersonProductivityChanged)
             .AddTo (gameObject);
-        GameManager.Instance.SecondsProductivity
+        StatusManager.Instance.SecondsProductivity
             .Subscribe (view.OnSecondsProductivityText)
             .AddTo (gameObject);
     }
