@@ -14,6 +14,9 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
     public ReactiveProperty<float> SecondsProductivity{
         get; private set;
     }
+    public ReactiveProperty<float> StayTime{
+        get; private set;
+    }
 
     private void Awake(){
         Money = new IntReactiveProperty();
@@ -43,5 +46,9 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager>
 
     public void DownSecondsProductivity(float seconds){
         this.SecondsProductivity.Value -= seconds;
+    }
+
+    public void SetStayTime(float time){
+        this.StayTime.Value = time;
     }
 }
