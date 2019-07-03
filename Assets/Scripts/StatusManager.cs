@@ -1,95 +1,121 @@
-﻿using Communication;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Communication;
 using UniRx;
 using UnityEngine;
 
-public class StatusManager : SingletonMonoBehaviour<StatusManager>
-{   
-    public ReactiveProperty<int> Money{
-        get; private set;
+public class StatusManager : SingletonMonoBehaviour<StatusManager> {
+    public ReactiveProperty<int> Money {
+        get;
+        private set;
     }
-    public ReactiveProperty<int> PersonProductivity{
-        get; private set;
+    public ReactiveProperty<int> PersonProductivity {
+        get;
+        private set;
     }
-    public ReactiveProperty<float> SecondsProductivity{
-        get; private set;
+    public ReactiveProperty<float> SecondsProductivity {
+        get;
+        private set;
     }
-    public ReactiveProperty<float> StayTime{
-        get; private set;
+    public ReactiveProperty<float> StayTime {
+        get;
+        private set;
     }
+
     [HideInInspector] public int snsLevel;
-    public ReactiveProperty<int> SnsFollowers{
-        get; private set;
+    public ReactiveProperty<int> SnsFollowers {
+        get;
+        private set;
     }
-    public ReactiveProperty<int> SnsCost{
-        get; private set;
+    public ReactiveProperty<int> SnsCost {
+        get;
+        private set;
     }
-    public ReactiveProperty<int> PartJobCount{
-        get; private set;
+    public ReactiveProperty<int> PartJobCount {
+        get;
+        private set;
     }
-    public ReactiveProperty<int> PartJobCost{
-        get; private set;
+    public ReactiveProperty<int> PartJobCost {
+        get;
+        private set;
+    }
+    public ReactiveProperty<int> MenuCount {
+        get;
+        private set;
+    }
+    public ReactiveProperty<int> MenuCost {
+        get;
+        private set;
     }
 
-    private void Awake(){
-        base.Awake();
-        Money = new IntReactiveProperty();
-        PersonProductivity = new IntReactiveProperty();
-        SecondsProductivity = new FloatReactiveProperty();
-        StayTime = new FloatReactiveProperty();
+    private void Awake () {
+        base.Awake ();
+        Money = new IntReactiveProperty ();
+        PersonProductivity = new IntReactiveProperty ();
+        SecondsProductivity = new FloatReactiveProperty ();
+        StayTime = new FloatReactiveProperty ();
         snsLevel = 0;
-        SnsFollowers = new IntReactiveProperty(CommandInfo.SNS_FOLLOWER_ARRAY[0]);
-        SnsCost = new IntReactiveProperty(CommandInfo.SNS_COST_ARRAY[0]);
-        PartJobCount = new IntReactiveProperty(0);
-        PartJobCost = new IntReactiveProperty(CommandInfo.PART_JOB_COST_ARRAY[0]);
+        SnsFollowers = new IntReactiveProperty (CommandInfo.SNS_FOLLOWER_ARRAY[0]);
+        SnsCost = new IntReactiveProperty (CommandInfo.SNS_COST_ARRAY[0]);
+        PartJobCount = new IntReactiveProperty (0);
+        PartJobCost = new IntReactiveProperty (CommandInfo.PART_JOB_COST_ARRAY[0]);
+        MenuCount = new IntReactiveProperty (1);
+        MenuCost = new IntReactiveProperty(CommandInfo.MENU_COUNT_COST_ARRAY[0]);
     }
 
-    public void SetMoney(int money){
+    public void SetMoney (int money) {
         this.Money.Value = money;
     }
 
-    public void ChangeMoney(int money){
+    public void ChangeMoney (int money) {
         this.Money.Value += money;
     }
 
-    public void SetPersonProductivity(int person){
+    public void SetPersonProductivity (int person) {
         this.PersonProductivity.Value = person;
     }
 
-    public void ChangePersonProductivity(int person){
+    public void ChangePersonProductivity (int person) {
         this.PersonProductivity.Value += person;
     }
 
-    public void SetSecondsProductivity(float seconds){
+    public void SetSecondsProductivity (float seconds) {
         this.SecondsProductivity.Value = seconds;
     }
 
-    public void DownSecondsProductivity(float seconds){
+    public void DownSecondsProductivity (float seconds) {
         this.SecondsProductivity.Value -= seconds;
     }
 
-    public void SetStayTime(float time){
+    public void SetStayTime (float time) {
         this.StayTime.Value = time;
     }
 
-    public void DownStayTime(float time){
+    public void DownStayTime (float time) {
         this.StayTime.Value -= time;
     }
 
-    public void SetSnsFollowes(int follower){
+    public void SetSnsFollowes (int follower) {
         this.SnsFollowers.Value = follower;
     }
 
-    public void SetSnsCost(int cost){
+    public void SetSnsCost (int cost) {
         this.SnsCost.Value = cost;
     }
 
-    public void SetPartJobCost(int cost){
+    public void SetPartJobCost (int cost) {
         this.PartJobCost.Value = cost;
     }
 
-    public void AddPartJobCount(){
+    public void AddPartJobCount () {
         PartJobCount.Value++;
+    }
+
+    public void SetMenuCost (int cost) {
+        this.MenuCost.Value = cost;
+    }
+
+    public void AddMenuCount () {
+        MenuCount.Value++;
     }
 }

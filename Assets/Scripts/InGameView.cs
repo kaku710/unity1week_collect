@@ -12,12 +12,15 @@ public class InGameView : MonoBehaviour {
     snsFollowerText,
     snsCostText,
     partJobCountText,
-    partJobCostText;
+    partJobCostText,
+    menuCountText,
+    menuCostText;
 
     public Button 
     snsButton,
     workButton,
-    employButton;
+    employButton,
+    menuExtendButton;
 
     public void OnMoneyChanged (int money) {
         moneyText.text = "¥" + money.ToString ();
@@ -45,5 +48,13 @@ public class InGameView : MonoBehaviour {
 
     public void OnPartJobCostChanged(int cost){
         partJobCostText.text = "¥" + cost.ToString();
+    }
+
+    public void OnMenuCountChanged(int count){
+        menuCountText.text = "メニュー数 : " + count.ToString();
+    }
+
+    public void OnMenuCostChanged(int cost){
+        menuCostText.text = "¥" + cost.ToString();
     }
 }

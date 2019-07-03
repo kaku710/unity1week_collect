@@ -13,9 +13,10 @@ public class InGamePresenter : MonoBehaviour {
         SetEvents ();
     }
 
-    private void Update(){
+    private void Update () {
         view.snsButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SnsCost.Value) && (StatusManager.Instance.snsLevel < GameInfo.MAX_SNS_LEVEL) ? true : false;
         view.employButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.PartJobCost.Value) && (StatusManager.Instance.PartJobCount.Value < GameInfo.MAX_PART_TIME_LEVEL) ? true : false;
+        view.menuExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.MenuCost.Value) && (StatusManager.Instance.MenuCount.Value < GameInfo.MAX_MENU_COUNT) ? true : false;
     }
 
     private void LoadGame () {
@@ -36,22 +37,29 @@ public class InGamePresenter : MonoBehaviour {
             .Subscribe (view.OnSecondsProductivityChanged)
             .AddTo (gameObject);
         StatusManager.Instance.SnsFollowers
-            .Subscribe(view.OnSNSFollowerChanged)
-            .AddTo(gameObject);
+            .Subscribe (view.OnSNSFollowerChanged)
+            .AddTo (gameObject);
         StatusManager.Instance.SnsCost
-            .Subscribe(view.OnSNSCostChanged)
-            .AddTo(gameObject);
+            .Subscribe (view.OnSNSCostChanged)
+            .AddTo (gameObject);
         StatusManager.Instance.PartJobCost
-            .Subscribe(view.OnPartJobCostChanged)
-            .AddTo(gameObject);
+            .Subscribe (view.OnPartJobCostChanged)
+            .AddTo (gameObject);
         StatusManager.Instance.PartJobCount
-            .Subscribe(view.OnPartJobCountChanged)
-            .AddTo(gameObject);
+            .Subscribe (view.OnPartJobCountChanged)
+            .AddTo (gameObject);
+        StatusManager.Instance.MenuCost
+            .Subscribe (view.OnMenuCostChanged)
+            .AddTo (gameObject);
+        StatusManager.Instance.MenuCount
+            .Subscribe (view.OnMenuCountChanged)
+            .AddTo (gameObject);
     }
 
     private void SetEvents () {
         view.snsButton.onClick.AddListener (command.OnSNSButtonClicked);
-        view.workButton.onClick.AddListener(command.OnWorkButtonClicked);
-        view.employButton.onClick.AddListener(command.OnEmployButtonClicked);
+        view.workButton.onClick.AddListener (command.OnWorkButtonClicked);
+        view.employButton.onClick.AddListener (command.OnEmployButtonClicked);
+        view.menuExtendButton.onClick.AddListener(command.OnMenuExtendButtonClicked);
     }
 }
