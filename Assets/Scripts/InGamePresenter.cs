@@ -9,13 +9,14 @@ public class InGamePresenter : MonoBehaviour {
     private void Start () {
         LoadGame ();
         Bind ();
+        SetEvents ();
     }
 
     private void LoadGame () {
         StatusManager.Instance.SetMoney (GameInfo.DEFAULT_MONEY);
         StatusManager.Instance.SetPersonProductivity (GameInfo.DEFAULT_PERSON_PRODUCTIVITY);
         StatusManager.Instance.SetSecondsProductivity (GameInfo.DEFAULT_SECONDS_PRODUCTIVITY);
-        StatusManager.Instance.SetStayTime(GameInfo.DEFAULT_STAY_TIME);
+        StatusManager.Instance.SetStayTime (GameInfo.DEFAULT_STAY_TIME);
     }
 
     private void Bind () {
@@ -28,5 +29,20 @@ public class InGamePresenter : MonoBehaviour {
         StatusManager.Instance.SecondsProductivity
             .Subscribe (view.OnSecondsProductivityText)
             .AddTo (gameObject);
+    }
+
+    private void SetEvents () {
+        view.snsButton.onClick.AddListener (OnSNSButtonClicked);
+    }
+
+    private void OnSNSButtonClicked () {
+        if (StatusManager.Instance.SecondsProductivity.Value > 1.002f) {
+            float downRate = 0.2f;
+            StatusManager.Instance.DownSecondsProductivity (downRate);
+            if (StatusManager.Instance.SecondsProductivity.Value <= 1f) StatusManager.Instance.SetSecondsProductivity (1f);
+        }
+        else {
+            StatusManager.Instance.ChangePersonProductivity(1);
+        }
     }
 }

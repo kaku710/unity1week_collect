@@ -261,7 +261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA5100000000"
+  m_Text: "\xA510000"
 --- !u!222 &128742052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2081,7 +2081,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30D5\u30A9\u30ED\u30EF\u30FC : 10000\u4EBA"
+  m_Text: "\u30D5\u30A9\u30ED\u30EF\u30FC : 0\u4EBA"
 --- !u!222 &1126020005
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3041,6 +3041,7 @@ MonoBehaviour:
   moneyText: {fileID: 128742051}
   personProductivityText: {fileID: 440898981}
   secondsProductivityText: {fileID: 598592071}
+  snsButton: {fileID: 1399278749}
 --- !u!4 &1823656087
 Transform:
   m_ObjectHideFlags: 0

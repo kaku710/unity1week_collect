@@ -9,6 +9,7 @@ public class InGameView : MonoBehaviour {
     moneyText,
     personProductivityText,
     secondsProductivityText;
+    public Button snsButton;
 
     public void OnMoneyChanged (int money) {
         moneyText.text = "¥" + money.ToString ();
@@ -19,6 +20,6 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnSecondsProductivityText (float seconds) {
-        secondsProductivityText.text = seconds.ToString ();
+        secondsProductivityText.text = seconds.ToString ("f1");
     }
 }
