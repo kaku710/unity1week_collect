@@ -7572,6 +7572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690450f5a975c4c1d9c1bfc068209250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restaurantViewManager: {fileID: 519758872}
 --- !u!4 &1623936241
 Transform:
   m_ObjectHideFlags: 0

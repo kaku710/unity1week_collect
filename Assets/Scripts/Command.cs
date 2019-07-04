@@ -4,6 +4,7 @@ using Communication;
 using UnityEngine;
 
 public class Command : MonoBehaviour {
+    [SerializeField] RestaurantViewManager restaurantViewManager;
     public void OnSNSButtonClicked () {
         if (StatusManager.Instance.SecondsProductivity.Value > 1.002f) {
             float downRate = 0.7f;
@@ -60,6 +61,7 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.SetSeatCost (CommandInfo.SEAT_COST_ARRAY[StatusManager.Instance.seatLevel]);
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
+            if(StatusManager.Instance.seatLevel == 4) restaurantViewManager.SetSecondCameraPos();
         }
     }
 }

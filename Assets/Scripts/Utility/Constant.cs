@@ -7,7 +7,7 @@
         public static readonly int MAX_SNS_LEVEL = 17;
         public static readonly int MAX_PART_TIME_LEVEL = 16;
         public static readonly int MAX_MENU_COUNT = 17;
-        public static readonly int MAX_SEAT_LEVEL = 11;
+        public static readonly int MAX_SEAT_LEVEL = 8;
         public static readonly int DEFAULT_MIN_MONEY_PER_TAP = 20;
         public static readonly int DEFAULT_MAX_MONEY_PER_TAP = 30;
     }
@@ -109,20 +109,17 @@
             500000,
             1000000
         };
-        public static readonly int[] SEAT_COUNT_ARRAY = new int[11]{
-            5,
-            7,
-            10,
-            15,
+        public static readonly int[] SEAT_COUNT_ARRAY = new int[8]{
+            4,
+            8,
+            12,
+            16,
             20,
-            25,
-            30,
-            35,
-            40,
-            45,
-            50
+            24,
+            28,
+            32
         };
-        public static readonly int[] SEAT_COST_ARRAY = new int[11]{
+        public static readonly int[] SEAT_COST_ARRAY = new int[8]{
             100000,
             150000,
             200000,
@@ -130,10 +127,7 @@
             500000,
             1000000,
             2000000,
-            3000000,
-            5000000,
-            10000000,
-            20000000
+            3000000
         };
     }
 }
