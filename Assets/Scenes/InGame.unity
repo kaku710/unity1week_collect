@@ -4298,7 +4298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4d791142a654f9db6623137e4e09b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seatTransform: {fileID: 8859524380143331466}
+  seatTransforms:
+  - {fileID: 8859524380143331466}
+  - {fileID: 8859283841060910330}
+  - {fileID: 8857888325758469780}
+  - {fileID: 8857732982880083406}
   customer: {fileID: 2292768526138335271, guid: 88faac1513d8e4fbc975cb2eae399c34,
     type: 3}
 --- !u!4 &909836666
