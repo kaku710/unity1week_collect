@@ -61,7 +61,7 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.SetSeatCost (CommandInfo.SEAT_COST_ARRAY[StatusManager.Instance.seatLevel]);
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
-            if(StatusManager.Instance.seatLevel == 4) restaurantViewManager.SetSecondCameraPos();
+            restaurantViewManager.ExtendRestaurant();
         }
     }
 }
