@@ -31,7 +31,7 @@ public class Command : MonoBehaviour {
         if (StatusManager.Instance.PartJobCount.Value < GameInfo.MAX_PART_TIME_LEVEL) {
             StatusManager.Instance.AddPartJobCount ();
             StatusManager.Instance.ChangeMoney (-(StatusManager.Instance.PartJobCost.Value));
-            float downTime = 0.3f; //あとで変える
+            float downTime = 0.2f; //あとで変える
             StatusManager.Instance.DownStayTime (downTime);
             StatusManager.Instance.SetPartJobCost (CommandInfo.PART_JOB_COST_ARRAY[StatusManager.Instance.PartJobCount.Value]);
             StatusManager.Instance.tapLevel++;
