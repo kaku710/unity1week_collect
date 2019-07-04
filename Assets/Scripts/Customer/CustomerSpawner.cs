@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour {
     [SerializeField] private Transform[] seatTransforms;
-    [SerializeField] private GameObject customer;
+    [SerializeField] private Customer customer;
+    [HideInInspector] public bool[] isEating;
     private float spawnTimer;
 
     private void Start () {
-        
+        isEating = new bool[32];
+        for(int i = 0; i < isEating.Length; i++){
+            isEating[i] = false;
+        }
     }
 
     private void Update(){
@@ -20,8 +24,20 @@ public class CustomerSpawner : MonoBehaviour {
     }
 
     private void SpawnCustomer(){
-        int rndNumber = Random.Range (0, StatusManager.Instance.SeatCount.Value);
-        float angleY = (rndNumber % 4) * 90;
-        Instantiate (customer, seatTransforms[rndNumber].position, Quaternion.Euler (0, angleY, 0));
+        int seatNumber = GetSeatNumber();
+        float angleY = (seatNumber % 4) * 90;
+        var cus = Instantiate (customer, seatTransforms[seatNumber].position, Quaternion.Euler (0, angleY, 0));
+        cus.customerSpawner = this;
+        cus.seatID = seatNumber;
+        isEating[seatNumber] = true;
+    }
+
+    private int GetSeatNumber(){
+        int seatNumber = 0;
+        while(true){
+            seatNumber = Random.Range (0, StatusManager.Instance.SeatCount.Value);
+            if(isEating[seatNumber] == false) break;
+        }
+        return seatNumber;
     }
 }

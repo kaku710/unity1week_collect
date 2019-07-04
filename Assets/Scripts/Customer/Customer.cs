@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour {
     [HideInInspector] public int charge;
+    [HideInInspector] public CustomerSpawner customerSpawner;
+    [HideInInspector] public int seatID;
 
     private void Start () {
         SetCharge ();
@@ -16,6 +18,7 @@ public class Customer : MonoBehaviour {
 
     private void DestroyCustomer () {
         StatusManager.Instance.ChangeMoney (charge);
+        customerSpawner.isEating[seatID] = false;
         Destroy (this.gameObject);
     }
 }

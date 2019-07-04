@@ -4331,8 +4331,9 @@ MonoBehaviour:
   - {fileID: 1663491125}
   - {fileID: 1920930895}
   - {fileID: 593727906}
-  customer: {fileID: 2292768526138335271, guid: 88faac1513d8e4fbc975cb2eae399c34,
+  customer: {fileID: 6681869589923007852, guid: 88faac1513d8e4fbc975cb2eae399c34,
     type: 3}
+  isEating: 
 --- !u!4 &909836666
 Transform:
   m_ObjectHideFlags: 0
