@@ -19,6 +19,7 @@ public class Customer : MonoBehaviour {
     private void DestroyCustomer () {
         StatusManager.Instance.ChangeMoney (charge);
         customerSpawner.isEating[seatID] = false;
+        customerSpawner.customerCount--;
         Destroy (this.gameObject);
     }
 }
