@@ -8,6 +8,8 @@
         public static readonly int MAX_PART_TIME_LEVEL = 16;
         public static readonly int MAX_MENU_COUNT = 17;
         public static readonly int MAX_SEAT_LEVEL = 11;
+        public static readonly int DEFAULT_MIN_MONEY_PER_TAP = 20;
+        public static readonly int DEFAULT_MAX_MONEY_PER_TAP = 30;
     }
 
     public static class CommandInfo{

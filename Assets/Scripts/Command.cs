@@ -17,11 +17,13 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.ChangeMoney (-(StatusManager.Instance.SnsCost.Value));
             StatusManager.Instance.SetSnsFollowes (CommandInfo.SNS_FOLLOWER_ARRAY[StatusManager.Instance.snsLevel]);
             StatusManager.Instance.SetSnsCost (CommandInfo.SNS_COST_ARRAY[StatusManager.Instance.snsLevel]);
+            StatusManager.Instance.tapLevel++;
+            StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
         }
     }
 
     public void OnWorkButtonClicked () {
-        int money = Random.Range (20, 31); //あとで変える
+        int money = Random.Range (StatusManager.Instance.MinMoneyPerTap.Value, StatusManager.Instance.MaxMoneyPerTap.Value + 1); //あとで変える
         StatusManager.Instance.ChangeMoney (money);
     }
 
@@ -32,6 +34,8 @@ public class Command : MonoBehaviour {
             float downTime = 0.3f; //あとで変える
             StatusManager.Instance.DownStayTime (downTime);
             StatusManager.Instance.SetPartJobCost (CommandInfo.PART_JOB_COST_ARRAY[StatusManager.Instance.PartJobCount.Value]);
+            StatusManager.Instance.tapLevel++;
+            StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
         }
     }
 
@@ -43,6 +47,8 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.minCharge = CommandInfo.CHARGE_ARRAY[StatusManager.Instance.MenuCount.Value - 1];
             StatusManager.Instance.maxCharge = CommandInfo.CHARGE_ARRAY[StatusManager.Instance.MenuCount.Value];
             StatusManager.Instance.SetMenuCost (CommandInfo.MENU_COUNT_COST_ARRAY[StatusManager.Instance.MenuCount.Value - 1]);
+            StatusManager.Instance.tapLevel++;
+            StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
         }
     }
 
@@ -52,6 +58,8 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.seatLevel++;
             StatusManager.Instance.SetSeatCount (CommandInfo.SEAT_COUNT_ARRAY[StatusManager.Instance.seatLevel]);
             StatusManager.Instance.SetSeatCost (CommandInfo.SEAT_COST_ARRAY[StatusManager.Instance.seatLevel]);
+            StatusManager.Instance.tapLevel++;
+            StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
         }
     }
 }

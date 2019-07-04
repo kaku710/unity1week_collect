@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Communication;
 using UniRx;
@@ -46,14 +47,23 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         get;
         private set;
     }
-    public int minCharge;
-    public int maxCharge;
+    [HideInInspector] public int minCharge;
+    [HideInInspector] public int maxCharge;
     [HideInInspector] public int seatLevel;
     public ReactiveProperty<int> SeatCount {
         get;
         private set;
     }
     public ReactiveProperty<int> SeatCost {
+        get;
+        private set;
+    }
+    [HideInInspector] public int tapLevel;
+    public ReactiveProperty<int> MinMoneyPerTap{
+        get;
+        private set;
+    }
+    public ReactiveProperty<int> MaxMoneyPerTap{
         get;
         private set;
     }
@@ -80,6 +90,9 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         seatLevel = 0;
         SeatCount = new IntReactiveProperty (CommandInfo.SEAT_COUNT_ARRAY[0]);
         SeatCost = new IntReactiveProperty (CommandInfo.SEAT_COST_ARRAY[0]);
+        tapLevel = 1;
+        MinMoneyPerTap = new IntReactiveProperty(GameInfo.DEFAULT_MIN_MONEY_PER_TAP);
+        MaxMoneyPerTap = new IntReactiveProperty(GameInfo.DEFAULT_MAX_MONEY_PER_TAP);
     }
 
     public void SetMoney (int money) {
@@ -144,5 +157,10 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
 
     public void SetSeatCost(int cost){
         this.SeatCost.Value = cost;
+    }
+
+    public void SetMoneyPerTap(int level){
+        this.MinMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MIN_MONEY_PER_TAP*(float)(Mathf.Pow(1.1f,level)));
+        this.MaxMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MAX_MONEY_PER_TAP*(float)(Mathf.Pow(1.1f,level)));
     }
 }

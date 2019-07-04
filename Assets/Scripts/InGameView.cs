@@ -17,7 +17,9 @@ public class InGameView : MonoBehaviour {
     menuCountText,
     menuCostText,
     seatCountText,
-    seatCostText;
+    seatCostText,
+    minMoneyPerTapText,
+    maxMoneyPerTapText;
 
     public Button 
     snsButton,
@@ -68,5 +70,13 @@ public class InGameView : MonoBehaviour {
 
     public void OnSeatCostChanged(int cost){
         seatCostText.text = StatusManager.Instance.seatLevel < GameInfo.MAX_SEAT_LEVEL - 1 ? "¥" + cost.ToString() : "MAX";
+    }
+
+    public void OnMinMoneyPerTapChanged(int money){
+        minMoneyPerTapText.text = money.ToString() + " ~ ";
+    }
+
+    public void OnMaxMoneyPerTapChanged(int money){
+        maxMoneyPerTapText.text = money.ToString() + "円";
     }
 }

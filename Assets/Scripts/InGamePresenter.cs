@@ -58,6 +58,12 @@ public class InGamePresenter : MonoBehaviour {
         StatusManager.Instance.SeatCost
             .Subscribe (view.OnSeatCostChanged)
             .AddTo (gameObject);
+        StatusManager.Instance.MinMoneyPerTap
+            .Subscribe(view.OnMinMoneyPerTapChanged)
+            .AddTo(gameObject);
+        StatusManager.Instance.MaxMoneyPerTap
+            .Subscribe(view.OnMaxMoneyPerTapChanged)
+            .AddTo(gameObject);
     }
 
     private void SetEvents () {
