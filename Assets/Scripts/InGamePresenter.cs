@@ -14,10 +14,7 @@ public class InGamePresenter : MonoBehaviour {
     }
 
     private void Update () {
-        view.snsButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SnsCost.Value) && (StatusManager.Instance.snsLevel < GameInfo.MAX_SNS_LEVEL - 1) ? true : false;
-        view.employButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.PartJobCost.Value) && (StatusManager.Instance.PartJobCount.Value < GameInfo.MAX_PART_TIME_LEVEL) ? true : false;
-        view.menuExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.MenuCost.Value) && (StatusManager.Instance.MenuCount.Value < GameInfo.MAX_MENU_COUNT) ? true : false;
-        view.seatExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SeatCost.Value) && (StatusManager.Instance.seatLevel < GameInfo.MAX_SEAT_LEVEL - 1) ? true : false;
+        SwitchButtonInteractible();
     }
 
     private void LoadGame () {
@@ -69,5 +66,12 @@ public class InGamePresenter : MonoBehaviour {
         view.employButton.onClick.AddListener (command.OnEmployButtonClicked);
         view.menuExtendButton.onClick.AddListener (command.OnMenuExtendButtonClicked);
         view.seatExtendButton.onClick.AddListener (command.OnSeatExtendButtonClicked);
+    }
+
+    private void SwitchButtonInteractible(){
+        view.snsButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SnsCost.Value) && (StatusManager.Instance.snsLevel < GameInfo.MAX_SNS_LEVEL - 1) ? true : false;
+        view.employButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.PartJobCost.Value) && (StatusManager.Instance.PartJobCount.Value < GameInfo.MAX_PART_TIME_LEVEL) ? true : false;
+        view.menuExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.MenuCost.Value) && (StatusManager.Instance.MenuCount.Value < GameInfo.MAX_MENU_COUNT) ? true : false;
+        view.seatExtendButton.interactable = (StatusManager.Instance.Money.Value >= StatusManager.Instance.SeatCost.Value) && (StatusManager.Instance.seatLevel < GameInfo.MAX_SEAT_LEVEL - 1) ? true : false;
     }
 }
