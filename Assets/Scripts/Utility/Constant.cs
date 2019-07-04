@@ -1,6 +1,6 @@
 ﻿namespace Communication{
     public static class GameInfo{
-        public static readonly int DEFAULT_MONEY = 1000;
+        public static readonly int DEFAULT_MONEY = 100000000;
         public static readonly int DEFAULT_PERSON_PRODUCTIVITY = 1;
         public static readonly float DEFAULT_SECONDS_PRODUCTIVITY = 10f;
         public static readonly float DEFAULT_STAY_TIME = 5f;
@@ -87,6 +87,26 @@
             10000000,
             20000000
         }; 
+        public static readonly int[] CHARGE_ARRAY = new int[18]{
+            1000,
+            1500,
+            2000,
+            3000,
+            5000,
+            70000,
+            10000,
+            15000,
+            25000,
+            40000,
+            60000,
+            80000,
+            100000,
+            150000,
+            200000,
+            300000,
+            500000,
+            1000000
+        };
         public static readonly int[] SEAT_COUNT_ARRAY = new int[11]{
             5,
             7,

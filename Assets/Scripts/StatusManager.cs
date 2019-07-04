@@ -21,7 +21,6 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         get;
         private set;
     }
-
     [HideInInspector] public int snsLevel;
     public ReactiveProperty<int> SnsFollowers {
         get;
@@ -47,6 +46,8 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         get;
         private set;
     }
+    public int minCharge;
+    public int maxCharge;
     [HideInInspector] public int seatLevel;
     public ReactiveProperty<int> SeatCount {
         get;
@@ -74,6 +75,8 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         PartJobCost = new IntReactiveProperty (CommandInfo.PART_JOB_COST_ARRAY[0]);
         MenuCount = new IntReactiveProperty (1);
         MenuCost = new IntReactiveProperty (CommandInfo.MENU_COUNT_COST_ARRAY[0]);
+        minCharge = CommandInfo.CHARGE_ARRAY[MenuCount.Value - 1];
+        maxCharge = CommandInfo.CHARGE_ARRAY[MenuCount.Value];
         seatLevel = 0;
         SeatCount = new IntReactiveProperty (CommandInfo.SEAT_COUNT_ARRAY[0]);
         SeatCost = new IntReactiveProperty (CommandInfo.SEAT_COST_ARRAY[0]);

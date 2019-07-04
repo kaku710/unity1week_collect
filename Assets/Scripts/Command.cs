@@ -40,6 +40,8 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.ChangeMoney (-(StatusManager.Instance.MenuCost.Value));
             StatusManager.Instance.AddMenuCount ();
             //客の単価をあげる処理
+            StatusManager.Instance.minCharge = CommandInfo.CHARGE_ARRAY[StatusManager.Instance.MenuCount.Value - 1];
+            StatusManager.Instance.maxCharge = CommandInfo.CHARGE_ARRAY[StatusManager.Instance.MenuCount.Value];
             StatusManager.Instance.SetMenuCost (CommandInfo.MENU_COUNT_COST_ARRAY[StatusManager.Instance.MenuCount.Value - 1]);
         }
     }

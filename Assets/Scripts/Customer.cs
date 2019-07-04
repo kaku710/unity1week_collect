@@ -11,7 +11,7 @@ public class Customer : MonoBehaviour {
     }
 
     private void SetCharge () {
-        charge = Random.Range (1000, 2000); //あとで変える
+        charge = Random.Range (StatusManager.Instance.minCharge, StatusManager.Instance.maxCharge + 1); //あとで変える
     }
 
     private void DestroyCustomer () {
