@@ -7,7 +7,7 @@ public class CustomerSpawner : MonoBehaviour {
     [SerializeField] private GameObject customer;
 
     private void Start () {
-        int rndNumber = Random.Range (0, 4);
+        int rndNumber = Random.Range (0, StatusManager.Instance.SeatCount.Value);
         float angleY = (rndNumber % 4) * 90;
         Instantiate (customer, seatTransforms[rndNumber].position, Quaternion.Euler (0, angleY, 0));
     }
