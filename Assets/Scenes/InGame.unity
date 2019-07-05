@@ -2758,7 +2758,7 @@ Camera:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.49167854, g: 0.7510161, b: 0.8207547, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -4298,6 +4298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4d791142a654f9db6623137e4e09b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customerCount: 0
   seatTransforms:
   - {fileID: 8859524380143331466}
   - {fileID: 8859283841060910330}
