@@ -41,7 +41,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnSNSFollowerChanged(int follower){
-        snsFollowerText.text = "フォロワー : " + follower.ToString() + "人";
+        snsFollowerText.text = "Follower : " + follower.ToString();
     }
 
     public void OnSNSCostChanged(int cost){
@@ -77,6 +77,6 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnMaxMoneyPerTapChanged(int money){
-        maxMoneyPerTapText.text = money.ToString() + "円";
+        maxMoneyPerTapText.text = money.ToString() + "yen";
     }
 }

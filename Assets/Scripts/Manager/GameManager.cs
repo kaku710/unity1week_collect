@@ -10,7 +10,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
         GAME,
         RESULT
     }
-    private GameState currentGameState;
+    public GameState currentGameState;
 
     private void Start(){
         SetCurrentState(GameState.TITLE);
