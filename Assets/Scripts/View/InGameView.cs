@@ -49,7 +49,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnPartJobCountChanged(int count){
-        partJobCountText.text = "バイト数 : " + count.ToString() + "人";
+        partJobCountText.text = "Staff : " + count.ToString() + " people";
     }
 
     public void OnPartJobCostChanged(int cost){
@@ -57,7 +57,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnMenuCountChanged(int count){
-        menuCountText.text = "メニュー数 : " + count.ToString();
+        menuCountText.text = "Menu Count : " + count.ToString();
     }
 
     public void OnMenuCostChanged(int cost){
@@ -65,7 +65,7 @@ public class InGameView : MonoBehaviour {
     }
 
     public void OnSeatCountChanged(int count){
-        seatCountText.text = "客席数 : " + count.ToString();
+        seatCountText.text = "Seat Count : " + count.ToString();
     }
 
     public void OnSeatCostChanged(int cost){
