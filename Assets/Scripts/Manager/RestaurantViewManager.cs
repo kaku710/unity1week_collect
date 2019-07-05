@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class RestaurantViewManager : MonoBehaviour {
     [SerializeField] private GameObject mainCam;
     [SerializeField] private GameObject addTemplate;
     [SerializeField] private GameObject[] tables;
+    [SerializeField] private Canvas titleCanvas;
+    [SerializeField] private Canvas commandCanvas;
+    [SerializeField] private Button goToGameButton;
+    private Vector3 titleCameraPos = new Vector3 (7.8f, 5.9f, -3.9f);
     private Vector3 defaultCameraPos = new Vector3 (4.2f, 3.3f, 1.2f);
     private Vector3 secondCameraPos = new Vector3 (6f, 5f, 4.6f);
 
-    private void Start () {
-        mainCam.transform.position = defaultCameraPos;
+    private void Start(){
+        SetTitle();
+        goToGameButton.onClick.AddListener(GoToGame);
     }
 
     public void ExtendRestaurant () {
-        switch(StatusManager.Instance.seatLevel){
+        switch (StatusManager.Instance.seatLevel) {
             case 0:
             case 1:
             case 2:
@@ -23,16 +30,38 @@ public class RestaurantViewManager : MonoBehaviour {
             case 5:
             case 6:
             case 7:
-                tables[StatusManager.Instance.seatLevel].SetActive(true);
+                tables[StatusManager.Instance.seatLevel].SetActive (true);
                 break;
             case 4:
-                tables[StatusManager.Instance.seatLevel].SetActive(true);
+                tables[StatusManager.Instance.seatLevel].SetActive (true);
                 SetSecondCameraPos ();
                 addTemplate.SetActive (true);
                 break;
             default:
                 break;
         }
+    }
+
+    private void SetTitle () {
+        SetTitleCameraPos ();
+        titleCanvas.gameObject.SetActive (true);
+    }
+
+    private void GoToGame(){
+        GameManager.Instance.SetCurrentState(GameManager.GameState.GAME);
+        titleCanvas.gameObject.SetActive(false);
+        SetDefaultCameraPos();
+    }
+
+    private void SetTitleCameraPos () {
+        mainCam.transform.position = titleCameraPos;
+    }
+
+    private void SetDefaultCameraPos(){
+        mainCam.transform.DOMove (
+            defaultCameraPos,
+            1f
+        ).OnComplete(() => {commandCanvas.gameObject.SetActive(true);});
     }
 
     private void SetSecondCameraPos () {

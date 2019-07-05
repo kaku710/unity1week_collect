@@ -12,6 +12,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
     }
     private GameState currentGameState;
 
+    private void Start(){
+        SetCurrentState(GameState.TITLE);
+    }
+
     public void SetCurrentState(GameState state){
         currentGameState = state;
         OnGameStateChanged(currentGameState);
