@@ -45,6 +45,8 @@ public class Customer : MonoBehaviour {
         StatusManager.Instance.ChangeMoney (charge);
         customerSpawner.isEating[seatID] = false;
         customerSpawner.customerCount--;
+        StatusManager.Instance.AddCustomerCount();
+        AudioManager.Instance.PlaySEWithVolume("clearing1",0.4f);
         Destroy (this.gameObject);
     }
 }

@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class InGameView : MonoBehaviour {
     [SerializeField] private Text
     moneyText,
-    personProductivityText,
-    secondsProductivityText,
     snsFollowerText,
     snsCostText,
     partJobCountText,
@@ -19,7 +17,8 @@ public class InGameView : MonoBehaviour {
     seatCountText,
     seatCostText,
     minMoneyPerTapText,
-    maxMoneyPerTapText;
+    maxMoneyPerTapText,
+    totalCustomerCountText;
 
     public Button 
     snsButton,
@@ -32,13 +31,13 @@ public class InGameView : MonoBehaviour {
         moneyText.text = "¥" + money.ToString ();
     }
 
-    public void OnPersonProductivityChanged (int person) {
-        personProductivityText.text = person.ToString ();
-    }
+    // public void OnPersonProductivityChanged (int person) {
+    //     personProductivityText.text = person.ToString ();
+    // }
 
-    public void OnSecondsProductivityChanged (float seconds) {
-        secondsProductivityText.text = seconds.ToString ("f1");
-    }
+    // public void OnSecondsProductivityChanged (float seconds) {
+    //     secondsProductivityText.text = seconds.ToString ("f1");
+    // }
 
     public void OnSNSFollowerChanged(int follower){
         snsFollowerText.text = "Follower : " + follower.ToString();
@@ -79,4 +78,9 @@ public class InGameView : MonoBehaviour {
     public void OnMaxMoneyPerTapChanged(int money){
         maxMoneyPerTapText.text = money.ToString() + "yen";
     }
+
+
+    public void OnTotalCustomerChanged(int count){
+        totalCustomerCountText.text = "COLLECTED CUSTOMER : " + count.ToString();
+    }   
 }

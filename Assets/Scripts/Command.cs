@@ -22,11 +22,13 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
         }
+        AudioManager.Instance.PlaySEWithVolume("decision24",0.7f);
     }
 
     public void OnWorkButtonClicked () {
         int money = Random.Range (StatusManager.Instance.MinMoneyPerTap.Value, StatusManager.Instance.MaxMoneyPerTap.Value + 1); //あとで変える
         StatusManager.Instance.ChangeMoney (money);
+        AudioManager.Instance.PlaySEWithVolume("decision15",0.45f);
     }
 
     public void OnEmployButtonClicked () {
@@ -39,6 +41,7 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
             staffSpawner.SpawnStaff();
+            AudioManager.Instance.PlaySEWithVolume("decision24",0.7f);
         }
     }
 
@@ -52,6 +55,7 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.SetMenuCost (CommandInfo.MENU_COUNT_COST_ARRAY[StatusManager.Instance.MenuCount.Value - 1]);
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
+            AudioManager.Instance.PlaySEWithVolume("decision24",0.7f);
         }
     }
 
@@ -64,6 +68,7 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
             restaurantViewManager.ExtendRestaurant();
+            AudioManager.Instance.PlaySEWithVolume("decision24",0.7f);
         }
     }
 }

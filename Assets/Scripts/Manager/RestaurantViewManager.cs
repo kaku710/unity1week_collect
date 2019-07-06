@@ -11,6 +11,7 @@ public class RestaurantViewManager : MonoBehaviour {
     [SerializeField] private GameObject[] tables;
     [SerializeField] private Canvas titleCanvas;
     [SerializeField] private Canvas commandCanvas;
+    [SerializeField] private Canvas uiCanvas;
     [SerializeField] private Canvas clearCanvas;
     [SerializeField] private Text clearTimeText;
     [SerializeField] private Button goToGameButton;
@@ -52,6 +53,7 @@ public class RestaurantViewManager : MonoBehaviour {
     private void GoToGame () {
         GameManager.Instance.SetCurrentState (GameManager.GameState.GAME);
         titleCanvas.gameObject.SetActive (false);
+        AudioManager.Instance.PlaySEWithVolume("decision22",0.9f);
         SetDefaultCameraPos ();
     }
 
@@ -63,7 +65,10 @@ public class RestaurantViewManager : MonoBehaviour {
         mainCam.transform.DOMove (
             defaultCameraPos,
             1f
-        ).OnComplete (() => { commandCanvas.gameObject.SetActive (true); });
+        ).OnComplete (() => {
+            commandCanvas.gameObject.SetActive (true);
+            uiCanvas.gameObject.SetActive (true);
+        });
     }
 
     private void SetSecondCameraPos () {
@@ -74,9 +79,10 @@ public class RestaurantViewManager : MonoBehaviour {
     }
 
     public void GameClear () {
-        GameManager.Instance.SetCurrentState(GameManager.GameState.RESULT);
+        GameManager.Instance.SetCurrentState (GameManager.GameState.RESULT);
         commandCanvas.gameObject.SetActive (false);
-        clearTimeText.text = "Clear Time : " + GameManager.Instance.clearTime.ToString("f2");
+        uiCanvas.gameObject.SetActive (false);
+        clearTimeText.text = "Clear Time : " + GameManager.Instance.clearTime.ToString ("f2");
         clearCanvas.gameObject.SetActive (true);
     }
 }

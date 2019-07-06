@@ -67,6 +67,10 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         get;
         private set;
     }
+    public ReactiveProperty<int> TotalCustomerCount{
+        get;
+        private set;
+    }
 
     private void Awake () {
         base.Awake ();
@@ -93,13 +97,9 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         tapLevel = 1;
         MinMoneyPerTap = new IntReactiveProperty(GameInfo.DEFAULT_MIN_MONEY_PER_TAP);
         MaxMoneyPerTap = new IntReactiveProperty(GameInfo.DEFAULT_MAX_MONEY_PER_TAP);
+        TotalCustomerCount = new IntReactiveProperty(0);
     }
-    private void Update(){
-        Debug.Log(MenuCount.Value);
-        Debug.Log("Min" + minCharge);
-        Debug.Log("Max" + maxCharge);
 
-    }
     public void SetMoney (int money) {
         this.Money.Value = money;
     }
@@ -167,5 +167,9 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
     public void SetMoneyPerTap(int level){
         this.MinMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MIN_MONEY_PER_TAP*(float)(Mathf.Pow(1.1f,level)));
         this.MaxMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MAX_MONEY_PER_TAP*(float)(Mathf.Pow(1.1f,level)));
+    }
+
+    public void AddCustomerCount(){
+        this.TotalCustomerCount.Value++;
     }
 }

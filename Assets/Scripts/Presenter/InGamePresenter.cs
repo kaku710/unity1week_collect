@@ -29,12 +29,12 @@ public class InGamePresenter : MonoBehaviour {
         StatusManager.Instance.Money
             .Subscribe (view.OnMoneyChanged)
             .AddTo (gameObject);
-        StatusManager.Instance.PersonProductivity
-            .Subscribe (view.OnPersonProductivityChanged)
-            .AddTo (gameObject);
-        StatusManager.Instance.SecondsProductivity
-            .Subscribe (view.OnSecondsProductivityChanged)
-            .AddTo (gameObject);
+        // StatusManager.Instance.PersonProductivity
+        //     .Subscribe (view.OnPersonProductivityChanged)
+        //     .AddTo (gameObject);
+        // StatusManager.Instance.SecondsProductivity
+        //     .Subscribe (view.OnSecondsProductivityChanged)
+        //     .AddTo (gameObject);
         StatusManager.Instance.SnsFollowers
             .Subscribe (view.OnSNSFollowerChanged)
             .AddTo (gameObject);
@@ -68,6 +68,9 @@ public class InGamePresenter : MonoBehaviour {
         StatusManager.Instance.Money
             .Where(x => x >= GameInfo.CLEAR_MONEY)
             .Subscribe(x => restaurantView.GameClear())
+            .AddTo(gameObject);
+        StatusManager.Instance.TotalCustomerCount
+            .Subscribe(view.OnTotalCustomerChanged)
             .AddTo(gameObject);
     }
 
