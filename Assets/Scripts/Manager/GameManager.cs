@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : SingletonMonoBehaviour<GameManager> {
-        
     public enum GameState{
         TITLE,
         GAME,
