@@ -95,8 +95,10 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
         MaxMoneyPerTap = new IntReactiveProperty(GameInfo.DEFAULT_MAX_MONEY_PER_TAP);
     }
     private void Update(){
-        Debug.Log(PartJobCount.Value);
-        Debug.Log(StayTime.Value);
+        Debug.Log(MenuCount.Value);
+        Debug.Log("Min" + minCharge);
+        Debug.Log("Max" + maxCharge);
+
     }
     public void SetMoney (int money) {
         this.Money.Value = money;
