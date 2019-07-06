@@ -7,6 +7,7 @@ using UnityEngine;
 public class InGamePresenter : MonoBehaviour {
     [SerializeField] private InGameView view;
     [SerializeField] private Command command;
+    [SerializeField] private RestaurantViewManager restaurantView;
     private void Start () {
         LoadGame ();
         Bind ();
@@ -63,6 +64,10 @@ public class InGamePresenter : MonoBehaviour {
             .AddTo(gameObject);
         StatusManager.Instance.MaxMoneyPerTap
             .Subscribe(view.OnMaxMoneyPerTapChanged)
+            .AddTo(gameObject);
+        StatusManager.Instance.Money
+            .Where(x => x >= GameInfo.CLEAR_MONEY)
+            .Subscribe(x => restaurantView.GameClear())
             .AddTo(gameObject);
     }
 
