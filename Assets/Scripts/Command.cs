@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Command : MonoBehaviour {
     [SerializeField] private RestaurantViewManager restaurantViewManager;
+    [SerializeField] private StaffSpawner staffSpawner;
     public void OnSNSButtonClicked () {
         if (StatusManager.Instance.SecondsProductivity.Value > 0.402f) {
             float downRate = 0.3f;
@@ -37,6 +38,7 @@ public class Command : MonoBehaviour {
             StatusManager.Instance.SetPartJobCost (CommandInfo.PART_JOB_COST_ARRAY[StatusManager.Instance.PartJobCount.Value]);
             StatusManager.Instance.tapLevel++;
             StatusManager.Instance.SetMoneyPerTap(StatusManager.Instance.tapLevel);
+            staffSpawner.SpawnStaff();
         }
     }
 
