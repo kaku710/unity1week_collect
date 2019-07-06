@@ -21,7 +21,7 @@ public class CarSpawner : MonoBehaviour {
     }
 
     private void SpawnCar () {
-        var num = Random.Range (0, 3);
+        var num = Random.Range (0, 12);
         var car = Resources.Load ("Cars/Car" + num);
         Instantiate (car, transform.position, Quaternion.Euler (0, angle, 0));
     }

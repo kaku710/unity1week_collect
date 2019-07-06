@@ -80,11 +80,11 @@ namespace naichilab
         IEnumerator GetHighScoreAndRankingBoard()
         {
             scoreLabel.text = _lastScore.TextForDisplay;
-            captionLabel.text = string.Format("{0}ランキング", _board.BoardName);
+            captionLabel.text = string.Format("{0}", _board.BoardName);
 
             //ハイスコア取得
             {
-                highScoreLabel.text = "取得中...";
+                highScoreLabel.text = "Getting...";
 
                 var hiScoreCheck = new YieldableNcmbQuery<NCMBObject>(_board.ClassName);
                 hiScoreCheck.WhereEqualTo(OBJECT_ID, ObjectID);
@@ -96,7 +96,7 @@ namespace naichilab
                     _ncmbRecord = hiScoreCheck.Result.First();
 
                     var s = _board.BuildScore(_ncmbRecord[COLUMN_SCORE].ToString());
-                    highScoreLabel.text = s != null ? s.TextForDisplay : "エラー";
+                    highScoreLabel.text = s != null ? s.TextForDisplay : "Error";
 
                     nameInputField.text = _ncmbRecord[COLUMN_NAME].ToString();
                 }
@@ -130,7 +130,7 @@ namespace naichilab
                     sendScoreButton.interactable = highScore.Value < _lastScore.Value;
                 }
 
-                Debug.Log(string.Format("登録済みスコア:{0} 今回スコア:{1} ハイスコア更新:{2}", highScore.Value, _lastScore.Value,
+                Debug.Log(string.Format("Subscribed Score:{0} This score:{1} New Record:{2}", highScore.Value, _lastScore.Value,
                     sendScoreButton.interactable));
             }
         }
@@ -144,7 +144,7 @@ namespace naichilab
         private IEnumerator SendScoreEnumerator()
         {
             sendScoreButton.interactable = false;
-            highScoreLabel.text = "送信中...";
+            highScoreLabel.text = "sending...";
 
             //ハイスコア送信
             if (_ncmbRecord == null)
@@ -205,7 +205,7 @@ namespace naichilab
 
             yield return so.FindAsync();
 
-            Debug.Log("データ取得 : " + so.Count.ToString() + "件");
+            Debug.Log("DataCount : " + so.Count.ToString());
             Destroy(msg);
 
             if (so.Error != null)
@@ -223,7 +223,7 @@ namespace naichilab
                     rankNode.NameText.text = r[COLUMN_NAME].ToString();
 
                     var s = _board.BuildScore(r[COLUMN_SCORE].ToString());
-                    rankNode.ScoreText.text = s != null ? s.TextForDisplay : "エラー";
+                    rankNode.ScoreText.text = s != null ? s.TextForDisplay : "Error";
 
 //                    Debug.Log(r[COLUMN_SCORE].ToString());
                 }

@@ -10,7 +10,7 @@
         public static readonly int MAX_SEAT_LEVEL = 8;
         public static readonly int DEFAULT_MIN_MONEY_PER_TAP = 20;
         public static readonly int DEFAULT_MAX_MONEY_PER_TAP = 30;
-        public static readonly int CLEAR_MONEY = 1000;
+        public static readonly int CLEAR_MONEY = 100000000;
     }
 
     public static class CommandInfo{

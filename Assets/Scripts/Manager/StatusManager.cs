@@ -165,8 +165,8 @@ public class StatusManager : SingletonMonoBehaviour<StatusManager> {
     }
 
     public void SetMoneyPerTap(int level){
-        this.MinMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MIN_MONEY_PER_TAP*(float)(Mathf.Pow(1.1f,level)));
-        this.MaxMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MAX_MONEY_PER_TAP*(float)(Mathf.Pow(1.1f,level)));
+        this.MinMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MIN_MONEY_PER_TAP*(float)(Mathf.Pow(1.15f,level)));
+        this.MaxMoneyPerTap.Value = (int)(GameInfo.DEFAULT_MAX_MONEY_PER_TAP*(float)(Mathf.Pow(1.15f,level)));
     }
 
     public void AddCustomerCount(){
