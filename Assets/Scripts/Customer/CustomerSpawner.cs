@@ -6,7 +6,7 @@ using Communication;
 public class CustomerSpawner : MonoBehaviour {
     [HideInInspector] public int customerCount;
     [SerializeField] private Transform[] seatTransforms;
-    [SerializeField] private Customer customer;
+    private GameObject customer;
     [HideInInspector] public bool[] isEating;
     private float spawnTimer;
     private float interval;
@@ -42,9 +42,11 @@ public class CustomerSpawner : MonoBehaviour {
     private void SpawnCustomer () {
         int seatNumber = GetSeatNumber ();
         float angleY = (seatNumber % 4) * 90;
-        var cus = Instantiate (customer, seatTransforms[seatNumber].position, Quaternion.Euler (0, angleY, 0));
-        cus.customerSpawner = this;
-        cus.seatID = seatNumber;
+        int id = Random.Range(0,36);
+        var obj = (GameObject)Resources.Load("Customer/Customer" + id);
+        var cus = Instantiate (obj, seatTransforms[seatNumber].position, Quaternion.Euler (0, angleY, 0));
+        cus.GetComponent<Customer>().customerSpawner = this;
+        cus.GetComponent<Customer>().seatID = seatNumber;
         customerCount++;
         isEating[seatNumber] = true;
     }
