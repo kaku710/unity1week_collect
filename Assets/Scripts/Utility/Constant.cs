@@ -1,6 +1,6 @@
 ﻿namespace Communication{
     public static class GameInfo{
-        public static readonly int DEFAULT_MONEY = 100000000;
+        public static readonly int DEFAULT_MONEY = 100;
         public static readonly int DEFAULT_PERSON_PRODUCTIVITY = 1;
         public static readonly float DEFAULT_SECONDS_PRODUCTIVITY = 10f;
         public static readonly float DEFAULT_STAY_TIME = 5f;
