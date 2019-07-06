@@ -53,7 +53,7 @@ public class RestaurantViewManager : MonoBehaviour {
     private void GoToGame () {
         GameManager.Instance.SetCurrentState (GameManager.GameState.GAME);
         titleCanvas.gameObject.SetActive (false);
-        AudioManager.Instance.PlaySEWithVolume("decision22",0.9f);
+        AudioManager.Instance.PlaySEWithVolume ("decision22", 0.9f);
         SetDefaultCameraPos ();
     }
 
@@ -83,6 +83,16 @@ public class RestaurantViewManager : MonoBehaviour {
         commandCanvas.gameObject.SetActive (false);
         uiCanvas.gameObject.SetActive (false);
         clearTimeText.text = "Clear Time : " + GameManager.Instance.clearTime.ToString ("f2");
+        DestroyCustomer();
+        //AudioManager.Instance.StopBGM ();
+        AudioManager.Instance.PlaySEWithVolume ("gameclear", 1f);
         clearCanvas.gameObject.SetActive (true);
+    }
+
+    private void DestroyCustomer(){
+        var customers = GameObject.FindGameObjectsWithTag("Customer");
+        foreach(var u in customers){
+            Destroy(u.gameObject);
+        }
     }
 }

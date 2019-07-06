@@ -9569,7 +9569,7 @@ GameObject:
   - component: {fileID: 6681869589923007852}
   m_Layer: 0
   m_Name: Customer1
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9670,6 +9670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: 0
+  customerSpawner: {fileID: 0}
+  seatID: 0
 --- !u!1 &2292768526138335559
 GameObject:
   m_ObjectHideFlags: 0
