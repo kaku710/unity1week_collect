@@ -1,16 +1,16 @@
 ﻿namespace Communication{
     public static class GameInfo{
-        public static readonly int DEFAULT_MONEY = 100;
+        public static readonly int DEFAULT_MONEY = 100000000;
         public static readonly int DEFAULT_PERSON_PRODUCTIVITY = 1;
-        public static readonly float DEFAULT_SECONDS_PRODUCTIVITY = 10f;
-        public static readonly float DEFAULT_STAY_TIME = 8f;
+        public static readonly float DEFAULT_SECONDS_PRODUCTIVITY = 4f;
+        public static readonly float DEFAULT_STAY_TIME = 10f;
         public static readonly int MAX_SNS_LEVEL = 17;
         public static readonly int MAX_PART_TIME_LEVEL = 16;
         public static readonly int MAX_MENU_COUNT = 17;
         public static readonly int MAX_SEAT_LEVEL = 8;
         public static readonly int DEFAULT_MIN_MONEY_PER_TAP = 20;
         public static readonly int DEFAULT_MAX_MONEY_PER_TAP = 30;
-        public static readonly int CLEAR_MONEY = 100000000;
+        public static readonly int CLEAR_MONEY = 1000000000;
     }
 
     public static class CommandInfo{

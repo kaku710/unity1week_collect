@@ -20,7 +20,7 @@ public class CustomerSpawner : MonoBehaviour {
     private void Update(){
         if(GameManager.Instance.currentGameState != GameManager.GameState.GAME) return;
         spawnTimer += Time.deltaTime;
-        if((spawnTimer >= StatusManager.Instance.SecondsProductivity.Value / 3) && customerCount < StatusManager.Instance.SeatCount.Value){
+        if((spawnTimer >= StatusManager.Instance.SecondsProductivity.Value) && customerCount < StatusManager.Instance.SeatCount.Value){
             SpawnCustomer();
             spawnTimer = 0;
         }

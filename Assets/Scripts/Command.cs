@@ -4,12 +4,12 @@ using Communication;
 using UnityEngine;
 
 public class Command : MonoBehaviour {
-    [SerializeField] RestaurantViewManager restaurantViewManager;
+    [SerializeField] private RestaurantViewManager restaurantViewManager;
     public void OnSNSButtonClicked () {
-        if (StatusManager.Instance.SecondsProductivity.Value > 1.002f) {
-            float downRate = 0.7f;
+        if (StatusManager.Instance.SecondsProductivity.Value > 0.402f) {
+            float downRate = 0.3f;
             StatusManager.Instance.DownSecondsProductivity (downRate);
-            if (StatusManager.Instance.SecondsProductivity.Value <= 1f) StatusManager.Instance.SetSecondsProductivity (1f);
+            if (StatusManager.Instance.SecondsProductivity.Value <= 0.401f) StatusManager.Instance.SetSecondsProductivity (0.4f);
         } else {
             StatusManager.Instance.ChangePersonProductivity (1);
         }
