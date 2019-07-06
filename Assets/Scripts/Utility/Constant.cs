@@ -5,7 +5,7 @@
         public static readonly float DEFAULT_SECONDS_PRODUCTIVITY = 4f;
         public static readonly float DEFAULT_STAY_TIME = 10f;
         public static readonly int MAX_SNS_LEVEL = 17;
-        public static readonly int MAX_PART_TIME_LEVEL = 16;
+        public static readonly int MAX_PART_TIME_LEVEL = 14;
         public static readonly int MAX_MENU_COUNT = 17;
         public static readonly int MAX_SEAT_LEVEL = 8;
         public static readonly int DEFAULT_MIN_MONEY_PER_TAP = 20;
@@ -52,7 +52,7 @@
             750000,
             1000000,
         };  
-        public static readonly int[] PART_JOB_COST_ARRAY = new int[17]{
+        public static readonly int[] PART_JOB_COST_ARRAY = new int[15]{
             1000,
             3000,
             5000,
@@ -67,9 +67,7 @@
             1000000,
             2000000,
             3000000,
-            5000000,
-            10000000,
-            20000000
+            5000000
         }; 
          public static readonly int[] MENU_COUNT_COST_ARRAY = new int[17]{
             1000,
