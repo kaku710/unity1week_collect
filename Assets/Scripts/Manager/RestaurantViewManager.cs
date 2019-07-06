@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -87,6 +88,7 @@ public class RestaurantViewManager : MonoBehaviour {
         //AudioManager.Instance.StopBGM ();
         AudioManager.Instance.PlaySEWithVolume ("gameclear", 1f);
         clearCanvas.gameObject.SetActive (true);
+        LoadRanking();
     }
 
     private void DestroyCustomer(){
@@ -94,5 +96,10 @@ public class RestaurantViewManager : MonoBehaviour {
         foreach(var u in customers){
             Destroy(u.gameObject);
         }
+    }
+
+    private void LoadRanking(){
+        int clearTime = (int)GameManager.Instance.clearTime;
+        naichilab.RankingLoader.Instance.SendScoreAndShowRanking (clearTime);
     }
 }
