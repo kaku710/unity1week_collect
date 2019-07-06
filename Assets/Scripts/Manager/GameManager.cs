@@ -37,6 +37,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager> {
                 break;
             case GameState.TITLE:
                 playTimer = 0;
+                AudioManager.Instance.PlayBGM("guutara");
                 break;
             default:
                 break;

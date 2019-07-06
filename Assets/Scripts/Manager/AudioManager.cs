@@ -95,11 +95,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         foreach (AudioClip se in seList) {
             _seDic [se.name] = se;
         }
-
-    }
-
-    private void Start(){
-        PlayBGM("guutara");
     }
 
     //=================================================================================
