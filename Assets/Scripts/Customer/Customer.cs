@@ -9,7 +9,8 @@ public class Customer : MonoBehaviour {
 
     private void Start () {
         SetCharge ();
-        Invoke ("DestroyCustomer", StatusManager.Instance.StayTime.Value);
+        float rnd = Random.Range(0.9f,1.1f);
+        Invoke ("DestroyCustomer", StatusManager.Instance.StayTime.Value * rnd);
     }
 
     private void SetCharge () {
